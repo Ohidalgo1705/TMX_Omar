@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Map</title>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlnMK9h4N-bzJUko3JMzjP4XNEjyEoUWk&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="./index.js"></script>
+	<style>
+
+	    
+#myProgress {
+	 color: red;
+
+
+
+	 width: 100%; 
+	height: :100%;
+	  
+
+	}
+	@media screen and (max-width: 600px) {
+	       table {
+	           width:100%;
+	       }
+	       thead {
+	           display: none;
+	       }
+	       tr:nth-of-type(2n) {
+	           background-color: inherit;
+	       }
+	       tr td:first-child {
+	           background: #f0f0f0;
+	           font-weight:bold;
+	           font-size:1.3em;
+	       }
+	       tbody td {
+	           display: block;
+	           text-align:center;
+
+	       }
+	       tbody td:before {
+	           content: attr(data-th);
+	           display: block;
+	           text-align:center;
+	       }
+
+	   
+
+
+
+
+	       
+	#divTot:before {background:#4958A2;color:white;}
+
+
+
+	@media screen and (max-width: 980px) {
+
+	#tabla_resultados2:before {
+
+	  display: block;
+	       overflow-x: auto;
+	 }
+	}
+
+	}
+
+	  @media screen and (max-width: 320px) {
+	     table {
+	       display: block;
+	       overflow-x: auto;
+	     }
+	   
+	}
+	  /* The side navigation menu */
+	    .sidenav {
+	    height: 100%; /* 100% Full-height */
+	    width: 0; /* 0 width - change this with JavaScript */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Stay on top */
+	    top: 0;
+	    left: 0;
+	    background-color: #123B5E; /* Black*/
+	    overflow-x: hidden; /* Disable horizontal scroll */
+	    padding-top: 60px; /* Place content 60px from the top */
+	    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+	}
+	 
+	/* The navigation menu links */
+	.sidenav a {
+	    padding: 8px 8px 8px 32px;
+	    text-decoration: none;
+	    font-size: 25px;
+	    color:white;
+	    display: block;
+	    transition: 0.3s
+	}
+	 
+	/* When you mouse over the navigation links, change their color */
+	.sidenav a:hover, .offcanvas a:focus{
+	    color: red;
+	}
+	 
+	/* Position and style the close button (top right corner) */
+	.sidenav .closebtn {
+	    position: absolute;
+	    top: 0;
+	    right: 25px;
+	    font-size: 12px;
+	    margin-left: 50px;
+	}
+	 
+	/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+	#main {
+	    transition: margin-left .5s;
+	    padding: 20px;
+	    overflow:hidden;
+	    width:100%;
+	}
+	body {
+	  overflow-x: hidden;
+	}
+	 
+	/* Add a black background color to the top navigation */
+	.topnav {
+	    background-color: #083D75;
+	    overflow: hidden;
+	}
+	 
+	/* Style the links inside the navigation bar */
+	.topnav a {
+	    float: left;
+	    display: block;
+	    color: white;
+	    text-align: center;
+	    padding: 14px 16px;
+	    text-decoration: none;
+	    font-size: 17px;
+	    height:50px;
+	}
+	 
+	/* Change the color of links on hover */
+	.topnav a:hover {
+	    background-color:#174E7E;
+	    color: white;
+	}
+	 
+	/* Add a color to the active/current link */
+	.topnav a.active {
+	    background-color: #4CAF50;
+	    color: white;
+	}
+	 
+	/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+	@media screen and (max-height: 450px) {
+	    .sidenav {padding-top: 15px;}
+	    .sidenav a {font-size: 18px;}
+
+	}
+	 
+
+	 
+	#ico{
+	  display: none;
+	}
+	 
+	.menu{
+	  background: #000;
+	  display: none;
+	  padding: 5px;
+	  width: 320px;
+	  @include border-radius(5px);
+	 
+
+	}
+	.btn_Verde {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+font-size: small;
+}
+.btn_rojo {
+  background-color: red; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: small;
+}
+		
+	</style>
+  </head>
+  <body>
+	  <div class="Container">
+		<div class="form-group row">
+    <label id="sol"></label>
+	</div>
+    <!--The div element for the map -->
+	<div class="form-group row">
+	<div class="col-lg-2 col-md-2 col-xs-12 col-sm-12">
+
+	</div>
+</div> <div class="form-group row"> <input type="button" value="" multiple>
+	<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">	
+		<table id="tabla_resultados" >
+		<thead role="rowgroup" >
+		  <tr role="row" >
+	   
+		  
+		  
+		  </tr>
+		</thead>
+		<tbody role="rowgroup"  id="rolerole">
+		  <tr>
+	 
+		 </tr>
+		</tbody>
+	  </table></div>
+		<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12"></div>
+		  <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+		<div id="map"></div>
+	</div>
+	</div>
+	</div>
+	<script>// Initialize and add the map
+var URLactual = window.location.href;
+//var url=URLactual.href
+var res = URLactual.split("?");
+	var valor_fila=res[1];
+	console.log(valor_fila)
+	console.log(URLactual)
+
+var solicitud =valor_fila.split("=")
+var valorSolicitud=solicitud[1];
+console.log(valorSolicitud)
+	$("#sol").text(valorSolicitud)
+
+////////////////
+var TKN="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWVmYTgwMDZjYjIzYzQ1YjIxNGE5OWQ4IiwiZW1iYXJjYWRvciI6IjVhZTcwMjQzMzQ3MzEyMTQwODJiYzUzYSIsImlhdCI6MTYxNDY5NDkyMSwiZXhwIjoxNjE0NzgxMzIxfQ.4w0U8svSJ5kpsdIO3j7UPsYJN6zQRLbh4GMXHh3Mep0"
+	
+//console.log(valor)
+var url= "https://tms-core-api.cloudnetlogistik.com/api/solicitudes/"+valorSolicitud+"/dashboard?emb=5ae7024334731214082bc53a&action=historico&userOid=5ef4ee27e02f271644506b57"
+//var url= "https://tms-core-api.cloudnetlogistik.com/api/solicitudes/S202102250064/dashboard?emb=5ae7024334731214082bc53a&action=historico&userOid=5ef4ee27e02f271644506b57"
+
+//console.log(url)
+	$.ajax({
+
+url: url, //url de donde creara el destino
+dataType: 'json', //tipo de datos retornados
+type: 'GET',
+async:false,  //enviar variables como POST,
+headers: {
+
+"Access-Control-Allow-Origin":"*",
+"x-access-token":TKN,
+"Content-Type": "application/json"
+
+}
+
+}).done(function (data) {
+	console.log(data)
+	//$("#lblValor"+valor_fila+"").text(data.detalles.origen.nombre)
+	var filas=data.detalles.length
+	//console.log(filas)
+	var filas2="";
+	var filas23="";
+	
+	for (  i = 0 ; i < filas; i++){
+		 filas2=data.detalles[i].destino.latitud
+		 filas23=data.detalles[i].destino.longitud
+		 Nombre=data.detalles[i].destino.nombre
+		 estatus=data.detalles[i].estatus
+		 var btn_carga="";
+		 if (estatus=="Pendiente"){
+		  btn_carga='<input class="btn_rojo form-control" type="button" value="'+Nombre+'" id="BTN_Carga_'+i+'"  />'}
+		  if (estatus=="Entregado"){
+		 btn_carga='<input class="btn_Verde form-control" type="button" value="'+Nombre+'" id="BTN_Carga_'+i+'"   />'}
+	console.log(filas2)
+	console.log(filas23)
+	console.log(estatus)
+	var fila ='<tr><td>'+btn_carga+'<input type="text" value="'+filas2+'" id="LAtitud_'+i+'" class="hide"/><input class="hide" type="text" value="'+filas23+'" id="Longitud_'+i+'"/></td></tr>'
+	$("#tabla_resultados").append(fila)
+	}
+	
+
+});
+
+$(document).on("click","[id^='BTN_Carga_'] ",function(){
+var latitud=parseFloat($(this).closest("tr").find("[id^='LAtitud_']").val());
+var longitud=parseFloat($(this).closest("tr").find("[id^='Longitud_']").val());
+console.log(latitud)
+console.log(longitud)
+try{
+			// The location of Uluru
+			const uluru = { lat: latitud, lng:longitud };
+			// The map, centered at Uluru
+			const map = new google.maps.Map(
+			  document.getElementById("map") ,
+			  {
+				zoom: 13,
+				center: uluru,
+			  }
+			);
+		  
+			// The marker, positioned at Uluru
+			const marker = new google.maps.Marker({
+			  position: uluru,
+			  map: map,
+			});}
+		catch{
+
+		}	
+
+});
+
+///////////////////
+	
+	/*	function initMap() {
+			try{
+			// The location of Uluru
+			const uluru = { lat: 23.1610391, lng:-109.7100923 };
+			// The map, centered at Uluru
+			const map = new google.maps.Map(
+			  document.getElementById("map") ,
+			  {
+				zoom: 4,
+				center: uluru,
+			  }
+			);
+		  
+			// The marker, positioned at Uluru
+			const marker = new google.maps.Marker({
+			  position: uluru,
+			  map: map,
+			});}
+		catch{
+
+		}		  }*/
+		
+				</script>
+  </body>
+</html>

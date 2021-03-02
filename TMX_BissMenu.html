@@ -1,0 +1,706 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	 <style type="text/css">
+
+	    
+
+
+	    
+
+	@media screen and (max-width: 600px) {
+	       table {
+	           width:100%;
+	       }
+	       thead {
+	           display: none;
+	       }
+	       tr:nth-of-type(2n) {
+	           background-color: inherit;
+	       }
+	       tr td:first-child {
+	           background: #f0f0f0;
+	           font-weight:bold;
+	           font-size:1.3em;
+	       }
+	       tbody td {
+	           display: block;
+	           text-align:center;
+
+	       }
+	       tbody td:before {
+	           content: attr(data-th);
+	           display: block;
+	           text-align:center;
+	       }
+
+	   
+
+
+
+
+	       
+	#divTot:before {background:#4958A2;color:white;}
+
+
+
+	@media screen and (max-width: 980px) {
+
+	#tabl class="Espacio"a_resultados2:before {
+
+	  display: block;
+	       overflow-x: auto;
+	 }
+	}
+
+	}
+
+	  @media screen and (max-width: 320px) {
+	     table {
+	       display: block;
+	       overflow-x: auto;
+	     }
+	   
+	}
+	  /* The side navigation menu */
+	    .sidenav {
+	    height: 100%; /* 100% Full-height */
+	    width: 0; /* 0 width - change this with JavaScript */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Stay on top */
+	    top: 0;
+	    left: 0;
+	    background-color: #123B5E; /* Black*/
+	    overflow-x: hidden; /* Disable horizontal scroll */
+	    padding-top: 60px; /* Place content 60px from the top */
+	    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+	}
+	 
+	/* The navigation menu links */
+	.sidenav a {
+	    padding: 8px 8px 8px 32px;
+	    text-decoration: none;
+	    font-size: 25px;
+	    color:white;
+	    display: block;
+	    transition: 0.3s
+	}
+	 
+	/* When you mouse over the navigation links, change their color */
+	.sidenav a:hover, .offcanvas a:focus{
+	    color: red;
+	}
+	 
+	/* Position and style the close button (top right corner) */
+	.sidenav .closebtn {
+	    position: absolute;
+	    top: 0;
+	    right: 25px;
+	    font-size: 12px;
+	    margin-left: 50px;
+	}
+	 
+	/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+	#main {
+	    transition: margin-left .5s;
+	    padding: 20px;
+	    overflow:hidden;
+	    width:100%;
+	}
+	body {
+	  overflow-x: hidden;
+	}
+	 
+	/* Add a black background color to the top navigation */
+	.topnav {
+	    background-color: #083D75;
+	    overflow: hidden;
+	}
+	 
+	/* Style the links inside the navigation bar */
+	.topnav a {
+	    float: left;
+	    display: block;
+	    color: white;
+	    text-align: center;
+	    padding: 14px 16px;
+	    text-decoration: none;
+	    font-size: 17px;
+	    height:50px;
+	}
+	 
+	/* Change the color of links on hover */
+	.topnav a:hover {
+	    background-color:#174E7E;
+	    color: white;
+	}
+	 
+	/* Add a color to the active/current link */
+	.topnav a.active {
+	    background-color: #4CAF50;
+	    color: white;
+	}
+	 
+	/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+	@media screen and (max-height: 450px) {
+	    .sidenav {padding-top: 15px;}
+	    .sidenav a {font-size: 18px;}
+
+	}
+	 
+
+	 
+	#ico{
+	  display: none;
+	}
+	 
+	.menu{
+	  background: #000;
+	  display: none;
+	  padding: 5px;
+	  width: 320px;
+	  @include border-radius(5px);
+	 
+
+	}
+	.num{
+
+		font-size: x-large;
+	}
+	.Espacio{
+
+color:#D3D3D1 ;
+}
+.numazul{
+
+font-size: x-large;
+color:#419ec1;
+}
+.Mybutton{background-color: white; /* Green */
+ 
+  color: white;
+border-color: #123B5E;
+
+}
+
+.BTNEtiqueta{ background-color: white; /* Green */
+
+  border-color: #EDF0F5;
+
+  text-align: center;
+
+  font-size: 16px;
+  width: 250;
+  height: 60;
+
+}
+.BTNEtiqueta2{ background-color: white; /* Green */
+
+border-color: white;
+
+text-align: center;
+
+font-size: 16px;
+width: 250;
+height: 60;
+
+}
+
+.EtiquetaCont{ 
+
+font-size: 40px;
+
+
+}
+.textoEtiqueta
+{ 
+
+font-size: 15px;
+
+
+}
+.ContenidoPunto{color:#515357;
+font-size:45px ;
+}
+.ContenidoPuntorojo{color:#D17878;
+font-size:45px ;
+}
+.ContenidoPuntogreen{color:#7ED178;
+font-size:45px ;
+}
+.ContenidoPuntoblue{color:#5875A7;
+font-size:45px ;
+}
+.ContenidoPuntoy{color:#F9F65B;
+font-size:45px ;
+}
+#panelhead{background-color: #D3D3D1;}
+#panelbody{background-color: #F0EFEB;}
+	  </style>
+
+			</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+	<div class="panel panel-default">
+		<div class="panel panel-heading" id="panelhead">	
+			<div class="form-group row">
+				
+					<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 text-center"><h1>Viajes Actuales</h1></div>
+				 <div class="col-lg-2 col-sm-12 col-md-2 col-xs-12"> <label class="num">50,45 %</label><label class="Espacio" class="Espacio">_</label><label> Completado </label></div>
+				 <div class="col-lg-2 col-sm-12 col-md-2 col-xs-12"> <label> Asignada </label><label class="Espacio">_</label><label class="num"> 892 </label><label class="Espacio">_</label><label class="numazul">. 450</label><label class="Espacio">_</label><label>Realizada</label></div>
+				 <div class="col-lg-3 col-sm-12 col-md-2 col-xs-12"> <label> Entregada </label><label class="Espacio">_</label><label class="num">50,45 %</label><label class="Espacio">_</label><label class="Espacio">_</label><label class="numazul">. 0,00%</label><label>Parcial</label></div>
+				 <div class="col-lg-2 col-sm-12 col-md-2 col-xs-12"> <label class="num">0,00 % </label><label class="Espacio">_</label><label> Rechazada </label></div>
+				 <div class="col-lg-2 col-sm-12 col-md-2 col-xs-12"> <label class="num">9,75 %</label><label class="Espacio">_</label><label> No Entregada </label></div>
+		
+			</div>
+		</div>
+		<div class="panel panel-body" id="panelbody">	
+
+	<div class="form-group row">
+		<div class="col-lg-1 col-sm-11 col-md-1 col-xs-11"><button type="button" class="Mybutton form-control " data-toggle="tooltip" data-placement="top" title="Rutas Finalizadas">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31" height="17.35" viewBox="0 0 31 17.35">
+				<defs>
+				  <clipPath id="clip-path">
+					<rect width="31" height="17.35" fill="none"/>
+				  </clipPath>
+				</defs>
+				<g id="finalized_routes" data-name="finalized routes" transform="translate(0 0.001)" clip-path="url(#clip-path)">
+				  <g id="Group_1392" data-name="Group 1392" transform="translate(8.617 2.842)">
+					<g id="_4._Embarques" data-name="4. Embarques" transform="translate(0 0)" opacity="0.6">
+					  <path id="Path_1242" data-name="Path 1242" d="M11.832,21a1.31,1.31,0,1,0,1.312,1.31A1.311,1.311,0,0,0,11.832,21Z" transform="translate(-2.786 -9.127)" fill="#fff" opacity="0.6"/>
+					  <ellipse id="Ellipse_76" data-name="Ellipse 76" cx="1.312" cy="1.31" rx="1.312" ry="1.31" transform="translate(17.791 11.888)" fill="#fff" opacity="0.6"/>
+					  <path id="Path_1283" data-name="Path 1283" d="M22.759,15.259a.2.2,0,0,1-.2-.2V13.8a.816.816,0,0,0-.185-.524.826.826,0,0,0-.486-.27l-.934-.162h0a.193.193,0,0,1-.147-.108L18.746,8.687a.925.925,0,0,0-.309-.354.773.773,0,0,0-.425-.116H14.154V6.052a.463.463,0,0,0-.471-.462H5.015a.47.47,0,0,0-.471.462V16.192L.5,17.995l.6,1.541,3.489-1.587H6.952a2.719,2.719,0,0,1,.864-1.541,2.689,2.689,0,0,1,3.55,0,2.719,2.719,0,0,1,.864,1.541h4.747a2.719,2.719,0,0,1,.864-1.541,2.68,2.68,0,0,1,4.407,1.541h.332a.293.293,0,0,0,.3-.3V15.259Zm-3.4-2.581H14.316a.185.185,0,0,1-.185-.185V9.165a.185.185,0,0,1,.185-.177h2.979a.649.649,0,0,1,.34.1.624.624,0,0,1,.239.27l1.544,3.082A.192.192,0,0,1,19.363,12.678Z" transform="translate(-0.5 -5.59)" fill="#fff" opacity="0.6"/>
+					  <path id="Path_1243" data-name="Path 1243" d="M22.759,15.259a.2.2,0,0,1-.2-.2V13.8a.816.816,0,0,0-.185-.524.826.826,0,0,0-.486-.27l-.934-.162h0a.193.193,0,0,1-.147-.108L18.746,8.687a.925.925,0,0,0-.309-.354.773.773,0,0,0-.425-.116H14.154V6.052a.463.463,0,0,0-.471-.462H5.015a.47.47,0,0,0-.471.462V16.192L.5,17.995l.6,1.541,3.489-1.587H6.952a2.719,2.719,0,0,1,.864-1.541,2.689,2.689,0,0,1,3.55,0,2.719,2.719,0,0,1,.864,1.541h4.747a2.719,2.719,0,0,1,.864-1.541,2.68,2.68,0,0,1,4.407,1.541h.332a.293.293,0,0,0,.3-.3V15.259Zm-3.4-2.581H14.316a.185.185,0,0,1-.185-.185V9.165a.185.185,0,0,1,.185-.177h2.979a.649.649,0,0,1,.34.1.624.624,0,0,1,.239.27l1.544,3.082A.192.192,0,0,1,19.363,12.678Z" transform="translate(-0.5 -5.59)" fill="#fff" opacity="0.6"/>
+					</g>
+					<g id="_4._Embarques-2" data-name="4. Embarques" transform="translate(0 0)" opacity="0.6">
+					  <path id="Path_1242-2" data-name="Path 1242" d="M11.832,21a1.31,1.31,0,1,0,1.312,1.31A1.311,1.311,0,0,0,11.832,21Z" transform="translate(-2.786 -9.127)" fill="#00263a"/>
+					  <ellipse id="Ellipse_76-2" data-name="Ellipse 76" cx="1.312" cy="1.31" rx="1.312" ry="1.31" transform="translate(17.791 11.888)" fill="#00263a"/>
+					  <path id="Path_1283-2" data-name="Path 1283" d="M22.759,15.259a.2.2,0,0,1-.2-.2V13.8a.816.816,0,0,0-.185-.524.826.826,0,0,0-.486-.27l-.934-.162h0a.193.193,0,0,1-.147-.108L18.746,8.687a.925.925,0,0,0-.309-.354.773.773,0,0,0-.425-.116H14.154V6.052a.463.463,0,0,0-.471-.462H5.015a.47.47,0,0,0-.471.462V16.192L.5,17.995l.6,1.541,3.489-1.587H6.952a2.719,2.719,0,0,1,.864-1.541,2.689,2.689,0,0,1,3.55,0,2.719,2.719,0,0,1,.864,1.541h4.747a2.719,2.719,0,0,1,.864-1.541,2.68,2.68,0,0,1,4.407,1.541h.332a.293.293,0,0,0,.3-.3V15.259Zm-3.4-2.581H14.316a.185.185,0,0,1-.185-.185V9.165a.185.185,0,0,1,.185-.177h2.979a.649.649,0,0,1,.34.1.624.624,0,0,1,.239.27l1.544,3.082A.192.192,0,0,1,19.363,12.678Z" transform="translate(-0.5 -5.59)" fill="#00263a"/>
+					  <path id="Path_1243-2" data-name="Path 1243" d="M22.759,15.259a.2.2,0,0,1-.2-.2V13.8a.816.816,0,0,0-.185-.524.826.826,0,0,0-.486-.27l-.934-.162h0a.193.193,0,0,1-.147-.108L18.746,8.687a.925.925,0,0,0-.309-.354.773.773,0,0,0-.425-.116H14.154V6.052a.463.463,0,0,0-.471-.462H5.015a.47.47,0,0,0-.471.462V16.192L.5,17.995l.6,1.541,3.489-1.587H6.952a2.719,2.719,0,0,1,.864-1.541,2.689,2.689,0,0,1,3.55,0,2.719,2.719,0,0,1,.864,1.541h4.747a2.719,2.719,0,0,1,.864-1.541,2.68,2.68,0,0,1,4.407,1.541h.332a.293.293,0,0,0,.3-.3V15.259Zm-3.4-2.581H14.316a.185.185,0,0,1-.185-.185V9.165a.185.185,0,0,1,.185-.177h2.979a.649.649,0,0,1,.34.1.624.624,0,0,1,.239.27l1.544,3.082A.192.192,0,0,1,19.363,12.678Z" transform="translate(-0.5 -5.59)" fill="#00263a"/>
+					</g>
+				  </g>
+				  <g id="check" transform="translate(-2 -1)">
+					<path id="checked_3_" data-name="checked (3)" d="M8.5,0A8.5,8.5,0,1,0,17,8.5,8.5,8.5,0,0,0,8.5,0ZM6.941,12.867,3.2,9.124,4.445,7.877l2.5,2.5,5.614-5.614L13.8,6.005Z" transform="translate(2 1)" fill="#fff"/>
+					<ellipse id="Ellipse_88" data-name="Ellipse 88" cx="7.438" cy="5.894" rx="7.438" ry="5.894" transform="translate(2.014 4.038)" fill="#fff"/>
+				  </g>
+				  <g id="check-2" data-name="check" transform="translate(0.772 0.842)">
+					<ellipse id="Ellipse_88-2" data-name="Ellipse 88" cx="5.639" cy="4.568" rx="5.639" ry="4.568" transform="translate(1.817 3)" fill="#fff"/>
+					<path id="checked_3_2" data-name="checked (3)" d="M7.5,0A7.5,7.5,0,1,0,15,7.5,7.5,7.5,0,0,0,7.5,0ZM6.124,11.353l-3.3-3.3,1.1-1.1,2.2,2.2L11.078,4.2l1.1,1.1Z" transform="translate(0 0)" fill="#00263a"/>
+				  </g>
+				</g>
+			  </svg>
+		  </button></div>
+		<div class="col-lg-1 col-sm-11 col-md-1 col-xs-11"><button type="button" class="Mybutton form-control " data-toggle="tooltip" data-placement="top" title="Fechas">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.998" height="25" viewBox="0 0 24.998 25">
+				<defs>
+				  <clipPath id="clip-path">
+					<rect width="24.998" height="25" fill="none"/>
+				  </clipPath>
+				</defs>
+				<g id="date" transform="translate(0)" clip-path="url(#clip-path)">
+				  <rect id="Rectangle_687" data-name="Rectangle 687" width="3" height="3" transform="translate(11.501 13)" fill="#657c88"/>
+				  <path id="Path_1537" data-name="Path 1537" d="M2.876,3.594V.719a.719.719,0,0,1,1.438,0V3.594a.719.719,0,0,1-1.438,0Zm12.219.719a.718.718,0,0,0,.719-.719V.719a.719.719,0,0,0-1.438,0V3.594A.719.719,0,0,0,15.095,4.313ZM23,17.25a5.75,5.75,0,1,1-5.75-5.75A5.75,5.75,0,0,1,23,17.25Zm-1.437,0a4.313,4.313,0,1,0-4.313,4.313A4.317,4.317,0,0,0,21.564,17.25ZM5.751,8.625H2.876V11.5H5.751ZM2.876,15.813H5.751V12.937H2.876ZM7.188,11.5h2.875V8.625H7.188Zm0,4.313h2.875V12.937H7.188Zm-5.75,1.294V7.187H17.251v2.875h1.438V4.456a1.568,1.568,0,0,0-1.557-1.581h-.6v.719a1.437,1.437,0,1,1-2.875,0V2.875H5.032v.719a1.437,1.437,0,1,1-2.875,0V2.875h-.6A1.569,1.569,0,0,0,0,4.456V17.107a1.571,1.571,0,0,0,1.558,1.581h8.505V17.25H1.559A.136.136,0,0,1,1.439,17.107ZM14.376,11.5V8.625H11.5V11.5Zm5.031,5.75H17.251V15.094a.719.719,0,0,0-1.437,0v2.875a.718.718,0,0,0,.719.719h2.875a.719.719,0,0,0,0-1.438Z" transform="translate(-0.001)" fill="#657c88"/>
+				  <g id="Group_1657" data-name="Group 1657" transform="translate(-132.003 -134.791)">
+					<path id="Path_1344" data-name="Path 1344" d="M7,0A7,7,0,1,1,0,7,7,7,0,0,1,7,0Z" transform="translate(143.001 145.791)" fill="#fff"/>
+					<path id="Path_1540" data-name="Path 1540" d="M6,0a6,6,0,1,0,6,6A6,6,0,0,0,6,0ZM8.594,7.141H6.05l-.025,0L6,7.141a.415.415,0,0,1-.415-.415V2.49a.415.415,0,1,1,.83,0V6.311H8.594a.415.415,0,0,1,0,.83Z" transform="translate(144.001 146.791)" fill="#00263a"/>
+				  </g>
+				</g>
+			  </svg>
+			  
+		  </button></div>
+		<div class="col-lg-1 col-sm-11 col-md-1 col-xs-11"><button type="button" class="Mybutton form-control " data-toggle="tooltip" data-placement="top" title="Lineas de Transporte">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="33" height="19" viewBox="0 0 33 19">
+				<defs>
+				  <clipPath id="clip-path">
+					<rect width="33" height="19.001" fill="none"/>
+				  </clipPath>
+				</defs>
+				<g id="transport_line" data-name="transport line" transform="translate(0)" clip-path="url(#clip-path)">
+				  <g id="Group_1392" data-name="Group 1392" transform="translate(10.617 3.842)">
+					<g id="_4._Embarques" data-name="4. Embarques" transform="translate(0 0)" opacity="0.6">
+					  <path id="Path_1242" data-name="Path 1242" d="M11.832,21a1.31,1.31,0,1,0,1.312,1.31A1.311,1.311,0,0,0,11.832,21Z" transform="translate(-2.786 -9.127)" fill="#fff" opacity="0.6"/>
+					  <ellipse id="Ellipse_76" data-name="Ellipse 76" cx="1.312" cy="1.31" rx="1.312" ry="1.31" transform="translate(17.791 11.888)" fill="#fff" opacity="0.6"/>
+					  <path id="Path_1283" data-name="Path 1283" d="M22.759,15.259a.2.2,0,0,1-.2-.2V13.8a.816.816,0,0,0-.185-.524.826.826,0,0,0-.486-.27l-.934-.162h0a.193.193,0,0,1-.147-.108L18.746,8.687a.925.925,0,0,0-.309-.354.773.773,0,0,0-.425-.116H14.154V6.052a.463.463,0,0,0-.471-.462H5.015a.47.47,0,0,0-.471.462V16.192L.5,17.995l.6,1.541,3.489-1.587H6.952a2.719,2.719,0,0,1,.864-1.541,2.689,2.689,0,0,1,3.55,0,2.719,2.719,0,0,1,.864,1.541h4.747a2.719,2.719,0,0,1,.864-1.541,2.68,2.68,0,0,1,4.407,1.541h.332a.293.293,0,0,0,.3-.3V15.259Zm-3.4-2.581H14.316a.185.185,0,0,1-.185-.185V9.165a.185.185,0,0,1,.185-.177h2.979a.649.649,0,0,1,.34.1.624.624,0,0,1,.239.27l1.544,3.082A.192.192,0,0,1,19.363,12.678Z" transform="translate(-0.5 -5.59)" fill="#fff" opacity="0.6"/>
+					  <path id="Path_1243" data-name="Path 1243" d="M22.759,15.259a.2.2,0,0,1-.2-.2V13.8a.816.816,0,0,0-.185-.524.826.826,0,0,0-.486-.27l-.934-.162h0a.193.193,0,0,1-.147-.108L18.746,8.687a.925.925,0,0,0-.309-.354.773.773,0,0,0-.425-.116H14.154V6.052a.463.463,0,0,0-.471-.462H5.015a.47.47,0,0,0-.471.462V16.192L.5,17.995l.6,1.541,3.489-1.587H6.952a2.719,2.719,0,0,1,.864-1.541,2.689,2.689,0,0,1,3.55,0,2.719,2.719,0,0,1,.864,1.541h4.747a2.719,2.719,0,0,1,.864-1.541,2.68,2.68,0,0,1,4.407,1.541h.332a.293.293,0,0,0,.3-.3V15.259Zm-3.4-2.581H14.316a.185.185,0,0,1-.185-.185V9.165a.185.185,0,0,1,.185-.177h2.979a.649.649,0,0,1,.34.1.624.624,0,0,1,.239.27l1.544,3.082A.192.192,0,0,1,19.363,12.678Z" transform="translate(-0.5 -5.59)" fill="#fff" opacity="0.6"/>
+					</g>
+					<g id="_4._Embarques-2" data-name="4. Embarques" transform="translate(0 0)" opacity="0.6">
+					  <path id="Path_1242-2" data-name="Path 1242" d="M11.832,21a1.31,1.31,0,1,0,1.312,1.31A1.311,1.311,0,0,0,11.832,21Z" transform="translate(-2.786 -9.127)" fill="#00263a"/>
+					  <ellipse id="Ellipse_76-2" data-name="Ellipse 76" cx="1.312" cy="1.31" rx="1.312" ry="1.31" transform="translate(17.791 11.888)" fill="#00263a"/>
+					  <path id="Path_1283-2" data-name="Path 1283" d="M22.759,15.259a.2.2,0,0,1-.2-.2V13.8a.816.816,0,0,0-.185-.524.826.826,0,0,0-.486-.27l-.934-.162h0a.193.193,0,0,1-.147-.108L18.746,8.687a.925.925,0,0,0-.309-.354.773.773,0,0,0-.425-.116H14.154V6.052a.463.463,0,0,0-.471-.462H5.015a.47.47,0,0,0-.471.462V16.192L.5,17.995l.6,1.541,3.489-1.587H6.952a2.719,2.719,0,0,1,.864-1.541,2.689,2.689,0,0,1,3.55,0,2.719,2.719,0,0,1,.864,1.541h4.747a2.719,2.719,0,0,1,.864-1.541,2.68,2.68,0,0,1,4.407,1.541h.332a.293.293,0,0,0,.3-.3V15.259Zm-3.4-2.581H14.316a.185.185,0,0,1-.185-.185V9.165a.185.185,0,0,1,.185-.177h2.979a.649.649,0,0,1,.34.1.624.624,0,0,1,.239.27l1.544,3.082A.192.192,0,0,1,19.363,12.678Z" transform="translate(-0.5 -5.59)" fill="#00263a"/>
+					  <path id="Path_1243-2" data-name="Path 1243" d="M22.759,15.259a.2.2,0,0,1-.2-.2V13.8a.816.816,0,0,0-.185-.524.826.826,0,0,0-.486-.27l-.934-.162h0a.193.193,0,0,1-.147-.108L18.746,8.687a.925.925,0,0,0-.309-.354.773.773,0,0,0-.425-.116H14.154V6.052a.463.463,0,0,0-.471-.462H5.015a.47.47,0,0,0-.471.462V16.192L.5,17.995l.6,1.541,3.489-1.587H6.952a2.719,2.719,0,0,1,.864-1.541,2.689,2.689,0,0,1,3.55,0,2.719,2.719,0,0,1,.864,1.541h4.747a2.719,2.719,0,0,1,.864-1.541,2.68,2.68,0,0,1,4.407,1.541h.332a.293.293,0,0,0,.3-.3V15.259Zm-3.4-2.581H14.316a.185.185,0,0,1-.185-.185V9.165a.185.185,0,0,1,.185-.177h2.979a.649.649,0,0,1,.34.1.624.624,0,0,1,.239.27l1.544,3.082A.192.192,0,0,1,19.363,12.678Z" transform="translate(-0.5 -5.59)" fill="#00263a"/>
+					</g>
+				  </g>
+				  <g id="check">
+					<path id="checked_3_" data-name="checked (3)" d="M9.5,0A9.5,9.5,0,1,0,19,9.5,9.5,9.5,0,0,0,9.5,0ZM7.757,14.38,3.574,10.2,4.968,8.8l2.789,2.789,6.274-6.275,1.394,1.394Z" transform="translate(0 0)" fill="#fff"/>
+					<ellipse id="Ellipse_88" data-name="Ellipse 88" cx="7.438" cy="5.894" rx="7.438" ry="5.894" transform="translate(2.014 4.038)" fill="#fff"/>
+				  </g>
+				  <g id="Group_1659" data-name="Group 1659">
+					<path id="Path_1541" data-name="Path 1541" d="M8.5,0A8.5,8.5,0,1,1,0,8.5,8.5,8.5,0,0,1,8.5,0Z" transform="translate(1 1)" fill="#00263a"/>
+					<path id="Path_1541-2" data-name="Path 1541" d="M8.782,4.782,4.535.541A1.84,1.84,0,0,0,3.929.157,1.835,1.835,0,0,0,3.234,0H.762A.731.731,0,0,0,.228.226.731.731,0,0,0,0,.76V3.232a1.834,1.834,0,0,0,.157.7,1.77,1.77,0,0,0,.383.6L4.79,8.78A.728.728,0,0,0,5.325,9a.761.761,0,0,0,.541-.22L8.782,5.857A.728.728,0,0,0,9,5.323.761.761,0,0,0,8.782,4.782ZM2.441,2.439a.733.733,0,0,1-.538.223.761.761,0,0,1-.76-.76.761.761,0,0,1,.76-.76.761.761,0,0,1,.76.76A.732.732,0,0,1,2.441,2.439Z" transform="translate(13.999 4.998) rotate(90)" fill="#fff"/>
+				  </g>
+				</g>
+			  </svg>
+		  </button></div>
+		<div class="col-lg-1 col-sm-11 col-md-1 col-xs-11"><button type="button" class="Mybutton form-control " data-toggle="tooltip" data-placement="top" title="Operadores">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.998" height="24.209" viewBox="0 0 22.998 24.209">
+				<defs>
+				  <clipPath id="clip-path">
+					<rect width="22.998" height="24.209" fill="none"/>
+				  </clipPath>
+				</defs>
+				<g id="driver" transform="translate(0)" clip-path="url(#clip-path)">
+				  <path id="Path_1343" data-name="Path 1343" d="M12.391,20.624l-.049-.252c-.081-.422-.162-.812-.252-1.267V18.96a.353.353,0,0,0-.041-.2.812.812,0,0,1,.52-.958l.341-.138.1-.049.122-.041.309-.13a4.872,4.872,0,0,1,.26-.755l-.057-.106-.122-.146c-.1-.179-.2-.357-.3-.544a.812.812,0,0,1-.122-.585.869.869,0,0,1,.284-.5l.576-.5.487-.414h0l.373-.325a.812.812,0,0,1,.568-.219.861.861,0,0,1,.52.179l.747.576c.219-.179,1.291-1.023,1.315-1.056a7.064,7.064,0,0,0-4.2-2.3,5.269,5.269,0,1,0-5.683,0A7.064,7.064,0,0,0,2.08,17.734v3.41a.585.585,0,0,0,.585.585H12.676S12.408,20.722,12.391,20.624Z" transform="translate(-2.08 -1.045)" fill="#657c88" fill-rule="evenodd"/>
+				  <g id="Group_1656" data-name="Group 1656" transform="translate(-131.002 -140.791)">
+					<path id="Path_1344" data-name="Path 1344" d="M7,0A7,7,0,1,1,0,7,7,7,0,0,1,7,0Z" transform="translate(140 151)" fill="#fff"/>
+					<path id="Path_1333" data-name="Path 1333" d="M6,0a6,6,0,1,0,6,6A6.023,6.023,0,0,0,6,0ZM6,1.406a4.626,4.626,0,0,1,4.406,3.306.349.349,0,0,0-.178-.191A10.344,10.344,0,0,0,6,3.539a10.344,10.344,0,0,0-4.228.983.349.349,0,0,0-.178.191A4.626,4.626,0,0,1,6,1.406Zm-4.5,5.5a.351.351,0,0,0,.29.258l.845.117A2.473,2.473,0,0,1,4.72,9.368l.117.845a.349.349,0,0,0,.208.269A4.633,4.633,0,0,1,1.5,6.905ZM6,7.055A1.055,1.055,0,1,1,7.055,6,1.056,1.056,0,0,1,6,7.055Zm.955,3.428a.349.349,0,0,0,.208-.269l.117-.845A2.473,2.473,0,0,1,9.368,7.28l.845-.117a.352.352,0,0,0,.29-.258A4.633,4.633,0,0,1,6.955,10.482Z" transform="translate(141 152)" fill="#00263a"/>
+				  </g>
+				</g>
+			  </svg>
+		  </button></div>
+		<div class="col-lg-1 col-sm-11 col-md-1 col-xs-11"><button type="button" class="Mybutton form-control " data-toggle="tooltip" data-placement="top" title="Zonas">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30.795" height="20.469" viewBox="0 0 30.795 20.469">
+				<defs>
+				  <clipPath id="clip-path">
+					<rect width="30.796" height="20.468" fill="none"/>
+				  </clipPath>
+				</defs>
+				<g id="zone" clip-path="url(#clip-path)">
+				  <path id="warehouse" d="M14.058,9.639V5.623L8.435,9.639V5.623H7.029V2.343H5.623v3.28H4.217V0H1.406V5.623H0V16.4H19.681V5.623ZM7.5,14.058H5.623V12.183H7.5Zm3.28,0H8.9V12.183h1.874Zm3.28,0H12.183V12.183h1.874Z" transform="translate(11.115 2.599)" fill="#657c88"/>
+				  <g id="Group_1658" data-name="Group 1658" transform="translate(-126 -139)">
+					<path id="Path_1302" data-name="Path 1302" d="M20.432,0a7.551,7.551,0,0,0-7.549,7.536,7.339,7.339,0,0,0,.66,3.076,47.509,47.509,0,0,0,6.57,9.711.421.421,0,0,0,.637,0,47.532,47.532,0,0,0,6.571-9.711,7.336,7.336,0,0,0,.66-3.076A7.551,7.551,0,0,0,20.432,0Zm0,11.45a3.914,3.914,0,1,1,3.921-3.914A3.922,3.922,0,0,1,20.432,11.45Z" transform="translate(113.117 139)" fill="#fff"/>
+					<path id="Path_1302-2" data-name="Path 1302" d="M19.506,0a6.631,6.631,0,0,0-6.623,6.624,6.461,6.461,0,0,0,.579,2.7,41.762,41.762,0,0,0,5.765,8.536.369.369,0,0,0,.559,0,41.782,41.782,0,0,0,5.765-8.536,6.458,6.458,0,0,0,.579-2.7A6.632,6.632,0,0,0,19.506,0Zm0,10.064a3.441,3.441,0,1,1,3.44-3.44A3.445,3.445,0,0,1,19.506,10.064Z" transform="translate(113.117 140)" fill="#00263a"/>
+				  </g>
+				</g>
+			  </svg>
+			  
+		  </button></div>
+		<div class="col-lg-1 col-sm-11 col-md-1 col-xs-11"><button type="button" class="Mybutton form-control " data-toggle="tooltip" data-placement="top" title="Cuentas">
+			<svg xmlns="http://www.w3.org/2000/svg" width="25.001" height="24.119" viewBox="0 0 25.001 24.119"><g transform="translate(-654.999 -136.881)"><path d="M4.5,6.581V21.145a2.08,2.08,0,0,0,2.081,2.081H21.145a2.087,2.087,0,0,0,2.081-2.081V6.581A2.087,2.087,0,0,0,21.145,4.5H6.581A2.08,2.08,0,0,0,4.5,6.581Zm12.484,4.161a3.121,3.121,0,1,1-3.121-3.121A3.117,3.117,0,0,1,16.984,10.742ZM7.621,19.065c0-2.081,4.161-3.225,6.242-3.225s6.242,1.144,6.242,3.225v1.04H7.621Z" transform="translate(650.499 132.381)" fill="#657c88"/><g transform="translate(-3)"><g transform="translate(668.266 146.266)"><path d="M7.367,0a7.367,7.367,0,1,0,7.367,7.367A7.367,7.367,0,0,0,7.367,0ZM6.016,11.152,2.772,7.908,3.853,6.827,6.016,8.989l4.866-4.866L11.963,5.2Z" transform="translate(0 0)" fill="#fff"/><ellipse cx="5.768" cy="4.571" rx="5.768" ry="4.571" transform="translate(1.562 3.131)" fill="#fff"/></g><g transform="translate(669.568 147.299)"><ellipse cx="4.709" cy="3.815" rx="4.709" ry="3.815" transform="translate(1.517 2.505)" fill="#fff"/><path d="M6.263,0a6.263,6.263,0,1,0,6.263,6.263A6.263,6.263,0,0,0,6.263,0ZM5.114,9.48,2.356,6.723,3.276,5.8,5.114,7.642,9.251,3.505l.919.919Z" transform="translate(0 0)" fill="#00263a"/></g></g></g></svg>
+		  </button></div>
+		<div class="col-lg-1 col-sm-11 col-md-1 col-xs-11"><button type="button" class="Mybutton form-control " data-toggle="tooltip" data-placement="top" title="Estatus">
+		<svg xmlns="http://www.w3.org/2000/svg" width="33" height="19" viewBox="0 0 33 19"><g transform="translate(1 1)"><g transform="translate(9.617 2.842)"><g transform="translate(0 0)" opacity="0.6"><path d="M11.832,21a1.31,1.31,0,1,0,1.312,1.31A1.311,1.311,0,0,0,11.832,21Z" transform="translate(-2.786 -9.127)" fill="#fff" opacity="0.6"/><ellipse cx="1.312" cy="1.31" rx="1.312" ry="1.31" transform="translate(17.791 11.888)" fill="#fff" opacity="0.6"/><path d="M22.759,15.259a.2.2,0,0,1-.2-.2V13.8a.816.816,0,0,0-.185-.524.826.826,0,0,0-.486-.27l-.934-.162h0a.193.193,0,0,1-.147-.108L18.746,8.687a.925.925,0,0,0-.309-.354.773.773,0,0,0-.425-.116H14.154V6.052a.463.463,0,0,0-.471-.462H5.015a.47.47,0,0,0-.471.462V16.192L.5,17.995l.6,1.541,3.489-1.587H6.952a2.719,2.719,0,0,1,.864-1.541,2.689,2.689,0,0,1,3.55,0,2.719,2.719,0,0,1,.864,1.541h4.747a2.719,2.719,0,0,1,.864-1.541,2.68,2.68,0,0,1,4.407,1.541h.332a.293.293,0,0,0,.3-.3V15.259Zm-3.4-2.581H14.316a.185.185,0,0,1-.185-.185V9.165a.185.185,0,0,1,.185-.177h2.979a.649.649,0,0,1,.34.1.624.624,0,0,1,.239.27l1.544,3.082A.192.192,0,0,1,19.363,12.678Z" transform="translate(-0.5 -5.59)" fill="#fff" opacity="0.6"/><path d="M22.759,15.259a.2.2,0,0,1-.2-.2V13.8a.816.816,0,0,0-.185-.524.826.826,0,0,0-.486-.27l-.934-.162h0a.193.193,0,0,1-.147-.108L18.746,8.687a.925.925,0,0,0-.309-.354.773.773,0,0,0-.425-.116H14.154V6.052a.463.463,0,0,0-.471-.462H5.015a.47.47,0,0,0-.471.462V16.192L.5,17.995l.6,1.541,3.489-1.587H6.952a2.719,2.719,0,0,1,.864-1.541,2.689,2.689,0,0,1,3.55,0,2.719,2.719,0,0,1,.864,1.541h4.747a2.719,2.719,0,0,1,.864-1.541,2.68,2.68,0,0,1,4.407,1.541h.332a.293.293,0,0,0,.3-.3V15.259Zm-3.4-2.581H14.316a.185.185,0,0,1-.185-.185V9.165a.185.185,0,0,1,.185-.177h2.979a.649.649,0,0,1,.34.1.624.624,0,0,1,.239.27l1.544,3.082A.192.192,0,0,1,19.363,12.678Z" transform="translate(-0.5 -5.59)" fill="#fff" opacity="0.6"/></g><g transform="translate(0 0)" opacity="0.6"><path d="M11.832,21a1.31,1.31,0,1,0,1.312,1.31A1.311,1.311,0,0,0,11.832,21Z" transform="translate(-2.786 -9.127)" fill="#00263a"/><ellipse cx="1.312" cy="1.31" rx="1.312" ry="1.31" transform="translate(17.791 11.888)" fill="#00263a"/><path d="M22.759,15.259a.2.2,0,0,1-.2-.2V13.8a.816.816,0,0,0-.185-.524.826.826,0,0,0-.486-.27l-.934-.162h0a.193.193,0,0,1-.147-.108L18.746,8.687a.925.925,0,0,0-.309-.354.773.773,0,0,0-.425-.116H14.154V6.052a.463.463,0,0,0-.471-.462H5.015a.47.47,0,0,0-.471.462V16.192L.5,17.995l.6,1.541,3.489-1.587H6.952a2.719,2.719,0,0,1,.864-1.541,2.689,2.689,0,0,1,3.55,0,2.719,2.719,0,0,1,.864,1.541h4.747a2.719,2.719,0,0,1,.864-1.541,2.68,2.68,0,0,1,4.407,1.541h.332a.293.293,0,0,0,.3-.3V15.259Zm-3.4-2.581H14.316a.185.185,0,0,1-.185-.185V9.165a.185.185,0,0,1,.185-.177h2.979a.649.649,0,0,1,.34.1.624.624,0,0,1,.239.27l1.544,3.082A.192.192,0,0,1,19.363,12.678Z" transform="translate(-0.5 -5.59)" fill="#00263a"/><path d="M22.759,15.259a.2.2,0,0,1-.2-.2V13.8a.816.816,0,0,0-.185-.524.826.826,0,0,0-.486-.27l-.934-.162h0a.193.193,0,0,1-.147-.108L18.746,8.687a.925.925,0,0,0-.309-.354.773.773,0,0,0-.425-.116H14.154V6.052a.463.463,0,0,0-.471-.462H5.015a.47.47,0,0,0-.471.462V16.192L.5,17.995l.6,1.541,3.489-1.587H6.952a2.719,2.719,0,0,1,.864-1.541,2.689,2.689,0,0,1,3.55,0,2.719,2.719,0,0,1,.864,1.541h4.747a2.719,2.719,0,0,1,.864-1.541,2.68,2.68,0,0,1,4.407,1.541h.332a.293.293,0,0,0,.3-.3V15.259Zm-3.4-2.581H14.316a.185.185,0,0,1-.185-.185V9.165a.185.185,0,0,1,.185-.177h2.979a.649.649,0,0,1,.34.1.624.624,0,0,1,.239.27l1.544,3.082A.192.192,0,0,1,19.363,12.678Z" transform="translate(-0.5 -5.59)" fill="#00263a"/></g></g><g transform="translate(-1 -1)"><ellipse cx="7.438" cy="5.894" rx="7.438" ry="5.894" transform="translate(2.014 4.038)" fill="#fff"/></g><g transform="translate(-1 -1)"><g transform="translate(1 1)" fill="#00263a"><path d="M 8.5 17.5 C 3.53737998008728 17.5 -0.5 13.46261978149414 -0.5 8.5 C -0.5 3.53737998008728 3.53737998008728 -0.5 8.5 -0.5 C 13.46261978149414 -0.5 17.5 3.53737998008728 17.5 8.5 C 17.5 13.46261978149414 13.46261978149414 17.5 8.5 17.5 Z" stroke="none"/><path d="M 8.5 0 C 3.805580139160156 0 0 3.805580139160156 0 8.5 C 0 13.19441986083984 3.805580139160156 17 8.5 17 C 13.19441986083984 17 17 13.19441986083984 17 8.5 C 17 3.805580139160156 13.19441986083984 0 8.5 0 M 8.5 -1 C 13.73832035064697 -1 18 3.261679649353027 18 8.5 C 18 13.73832035064697 13.73832035064697 18 8.5 18 C 3.261679649353027 18 -1 13.73832035064697 -1 8.5 C -1 3.261679649353027 3.261679649353027 -1 8.5 -1 Z" stroke="none" fill="#fff"/></g><path d="M13.391,4.925a8.713,8.713,0,0,1-1.1.093,8.842,8.842,0,0,1-1.8-.27A9.208,9.208,0,0,0,8.627,4.5a3.531,3.531,0,0,0-1.784.3l-.093.064V13H7.812V9.055a6.715,6.715,0,0,1,.817-.044,8.958,8.958,0,0,1,1.766.343,9.494,9.494,0,0,0,1.924.255,8.785,8.785,0,0,0,1.071-.089c.166-.02.31-.038.443-.06v-4.6C13.723,4.881,13.557,4.905,13.391,4.925Z" transform="translate(0 1)" fill="#fff"/></g></g></svg>
+		  </button></div>
+		  <div class="col-lg-1 col-sm-11 col-md-1 col-xs-11"><button type="button" class="btn btn-success form-control" data-toggle="tooltip" data-placement="top" title="Buscar">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+				<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+			  </svg>
+			</button></div>
+		  <div class="col-lg-1 col-sm-11 col-md-1 col-xs-11"><button type="button" class="btn btn-danger " data-toggle="tooltip" data-placement="top" title="Limpiar">
+		X
+		</button></div>
+	
+	
+	
+	
+	
+	
+	
+	</div>
+	<div class="form-group row"></div>
+	<div class="form-group row"></div>
+	<div class="form-group row"></div>
+	<div class="form-group row">
+		<div class="col-lg-2 col-sm-12 col-md-2 col-xs-12">	
+			<button type="button" class="BTNEtiqueta " data-toggle="tooltip" data-placement="top" title="Viajes con estatus Aceptadas,Asignada,Arribada,Inicio De Carga,Fin De Carga">
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+					<label class="EtiquetaCont">8</label>
+				</div>
+				<div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">	
+					<div class="row">
+						<label class="textoEtiqueta">Viajes No iniciados</label>
+					</div>
+			
+				</div>
+				<div class="col-lg-2 col-sm-2 col-md-2 col-xs-2">
+					<label class="ContenidoPunto">.</label>	
+				</div>
+			</button>
+			<label class="Espacio">_</label>
+		</div>
+		<div class="col-lg-2 col-sm-12 col-md-2 col-xs-12">	
+			<button type="button" class="BTNEtiqueta " data-toggle="tooltip" data-placement="top" title="Viajes Con estatus en Trancito del dia">
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+					<label class="EtiquetaCont">2</label>
+				</div>
+				<div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">	
+					<div class="row">
+						<label class="textoEtiqueta">Viajes Iniciados</label>
+					</div>
+			
+				</div>
+				<div class="col-lg-2 col-sm-2 col-md-2 col-xs-2">
+					<label class="ContenidoPuntoy">.</label>	
+				</div>
+			</button>
+			<label class="Espacio">_</label>
+		</div>
+		<div class="col-lg-2 col-sm-12 col-md-2 col-xs-12">	
+			<button type="button" class="BTNEtiqueta " data-toggle="tooltip" data-placement="top" title="Viajes Con estatus en Trancito">
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+					<label class="EtiquetaCont">6</label>
+				</div>
+				<div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">	
+					<div class="row">
+						<label class="textoEtiqueta">Viajes En Transito</label>
+					</div>
+			
+				</div>
+				<div class="col-lg-2 col-sm-2 col-md-2 col-xs-2">
+					<label class="ContenidoPuntoblue">.</label>	
+				</div>
+			</button>
+			<label class="Espacio">_</label>
+		</div>
+		<div class="col-lg-2 col-sm-12 col-md-2 col-xs-12">	
+			<button type="button" class="BTNEtiqueta " data-toggle="tooltip" data-placement="top" title="Viajes Con estatus Entregada">
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+					<label class="EtiquetaCont">52</label>
+				</div>
+				<div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">	
+					<div class="row">
+						<label class="textoEtiqueta">Viajes Terminados</label>
+					</div>
+			
+				</div>
+				<div class="col-lg-2 col-sm-2 col-md-2 col-xs-2">
+					<label class="ContenidoPuntogreen">.</label>	
+				</div>
+			</button>
+			<label class="Espacio">_</label>
+		</div>
+		<div class="col-lg-2 col-sm-12 col-md-2 col-xs-12">	
+			<button type="button" class="BTNEtiqueta " data-toggle="tooltip" data-placement="top" title="Viajes Con estatus Cancelada y Caducada">
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+					<label class="EtiquetaCont">4</label>
+				</div>
+				<div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">	
+					<div class="row">
+						<label class="textoEtiqueta">Viajes Cancelados</label>
+					</div>
+			
+				</div>
+				<div class="col-lg-2 col-sm-2 col-md-2 col-xs-2">
+					<label class="ContenidoPuntorojo">.</label>	
+				</div>
+			</button>
+			<label class="Espacio">_</label>
+		</div>
+	
+	</div>
+	<div class="form-group row">
+		<table id="tabla_resultados"  class="table table-striped table-responsive-md btn-table table-hover">
+			<thead role="rowgroup" style="background-color:#4958A2;color:white; ">
+			  <tr role="row"  style="background-color:#4958A2;color:white; ">
+		   
+			  
+			  
+			  </tr>
+			</thead>
+			<tbody role="rowgroup"  id="rolerole">
+			  <tr>
+		 
+			 </tr>
+			</tbody>
+		  </table>
+	</div>
+
+</div></form>
+</div>
+<script>
+	$(document).on("click","[id^='cargarDTO'] ",function(){
+	var id=$(this).attr("id")
+	//console.log(id)
+	var res = id.split("_");
+	var valor_fila=res[1];
+
+	var TKN="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWVmYTgwMDZjYjIzYzQ1YjIxNGE5OWQ4IiwiZW1iYXJjYWRvciI6IjVhZTcwMjQzMzQ3MzEyMTQwODJiYzUzYSIsImlhdCI6MTYxNDY5NDkyMSwiZXhwIjoxNjE0NzgxMzIxfQ.4w0U8svSJ5kpsdIO3j7UPsYJN6zQRLbh4GMXHh3Mep0"
+	var valor=$(this).closest("tr").find("[id^='index']").text();
+//console.log(valor)
+var url= "https://tms-core-api.cloudnetlogistik.com/api/solicitudes/"+valor+"/dashboard?emb=5ae7024334731214082bc53a&action=historico&userOid=5ef4ee27e02f271644506b57"
+	//console.log(url)
+	$.ajax({
+
+url: url, //url de donde creara el destino
+dataType: 'json', //tipo de datos retornados
+type: 'GET',
+async:false,  //enviar variables como POST,
+headers: {
+
+"Access-Control-Allow-Origin":"*",
+"x-access-token":TKN,
+"Content-Type": "application/json"
+
+}
+
+}).done(function (data) {
+	//console.log(data)
+	//$("#lblValor"+valor_fila+"").text(data.detalles.origen.nombre)
+	var filas=data.detalles.length
+	//console.log(filas)
+	for (  i = 0 ; i < filas; i++){
+		var filas2=data.detalles[i].origen.nombre
+		var filas23=data.detalles[i].destino.nombre
+		//console.log(filas2)
+		$("#lblValor"+valor_fila+"").text(filas2)
+		$("#lblValor2"+valor_fila+"").text(filas23)
+
+	};
+
+});
+});
+var direcc="http://proyectos.tamex.pro:8085/BiisDatos/api/SelectDatosBiis/SelectDataBiis";
+
+
+var token =""
+$.ajax({
+
+url: direcc, //url de donde creara el destino
+dataType: 'json', //tipo de datos retornados
+type: 'POST',
+async:false,  //enviar variables como POST,
+headers: {
+
+"Access-Control-Allow-Origin":"*",
+"Content-Type": "application/json"
+
+}
+
+}).done(function (data) {
+
+
+//console.log(data)
+var filas = data.length;
+	//console.log(data)
+ //console.log(filas)
+        for (  i = 0 ; i < filas; i++){//console.log( data[i].id) 
+			var estatus=data[i].estatus
+			var punto="";
+			if(estatus=="En Transito"){
+
+				 punto ='<td><label class="ContenidoPuntoblue">.</label></td>'
+			}
+			if(estatus!="En Transito"){
+
+ punto ='<td><label class="ContenidoPuntorojo">.</label></td>'
+}
+		var Solicitud=data[i].Solicitud
+		var tiempo=0;
+		var teiqueta="";
+	
+		if(Solicitud=="S202102270055"){tiempo=0
+			 teiqueta="23h:17m - 1/21"}
+		if(Solicitud=="S202102270062"){tiempo=0 
+			teiqueta=""
+		}
+		if(Solicitud=="S202102270062"){tiempo=0 
+			teiqueta="22h:30m-0/10"
+		}
+		if(Solicitud=="S202103020012"){tiempo=0
+			teiqueta="1h:49- 0/1"
+		}
+		if(Solicitud=="S202102270015"){tiempo=0 
+			 teiqueta="1h:03m 0/7"}
+		if(Solicitud=="S202102250174"){tiempo=0 
+			teiqueta="95h:35m-0/11"
+		}
+		if(Solicitud=="S202102200053"){tiempo=50 
+			teiqueta="183h:25m 6/12"
+		}
+		if(Solicitud=="S202102200053"){tiempo=50
+			teiqueta="183h:25m 6/12"
+		}
+		if(Solicitud=="S202102120035"){tiempo=0 
+			teiqueta="431h:33m 0/7"
+		}
+		if(Solicitud=="S202101300070"){tiempo=0 
+			teiqueta="762h:12m 0/5"
+		}
+
+		
+
+
+			var nuevafila= '<tr id="tr___'+ i +'" >'+
+				'<td>'+punto+'</td>'+
+				'<td><div> <h4 id="index'+i+'">'+ data[i].Solicitud+'</h4><br/>'+ data[i].Referencia1+'<br/>'+ data[i].Referencia2+'</div></td>'+
+				
+				'<td><div class="form-group row"><svg xmlns="http://www.w3.org/2000/svg" width="11.853" height="15" viewBox="0 0 11.853 15">'+
+'<g id="route" transform="translate(-60.834 -97.843)" opacity="0.8">'+
+'  <path id="Path_1676" data-name="Path 1676" d="M64.5,110.313a.218.218,0,0,1,.021.023c.269.3.541.6.808.9h0c.506.559,1,1.106,1.437,1.608.436-.5.929-1.049,1.434-1.608a47.93,47.93,0,0,0,3.413-4.053,5.927,5.927,0,0,0-4.848-9.338h0a5.931,5.931,0,0,0-5.655,7.707,6.046,6.046,0,0,0,.808,1.631h0a37.414,37.414,0,0,0,2.581,3.13" fill="#00263a" fill-rule="evenodd"/>'+
+'  <path id="Path_1677" data-name="Path 1677" d="M74.428,111.5v0a2.249,2.249,0,0,0,0,3.18h0a2.249,2.249,0,1,0,3.18-3.181h0a2.242,2.242,0,0,0-1.589-.657h0a2.244,2.244,0,0,0-1.591.659" transform="translate(-9.215 -9.267)" fill="#fefefe" fill-rule="evenodd"/>'+
+'</g> '+
+'</svg><label id="lblValor'+i+'"></label></div>'+
+'<div class="form-group row"><svg xmlns="http://www.w3.org/2000/svg" width="11.853" height="15" viewBox="0 0 11.853 15">'+
+'<g id="route" transform="translate(-60.834 -97.843)" opacity="0.8">'+
+'  <path id="Path_1676" data-name="Path 1676" d="M64.5,110.313a.218.218,0,0,1,.021.023c.269.3.541.6.808.9h0c.506.559,1,1.106,1.437,1.608.436-.5.929-1.049,1.434-1.608a47.93,47.93,0,0,0,3.413-4.053,5.927,5.927,0,0,0-4.848-9.338h0a5.931,5.931,0,0,0-5.655,7.707,6.046,6.046,0,0,0,.808,1.631h0a37.414,37.414,0,0,0,2.581,3.13" fill="#00263a" fill-rule="evenodd"/>'+
+'  <path id="Path_1677" data-name="Path 1677" d="M74.428,111.5v0a2.249,2.249,0,0,0,0,3.18h0a2.249,2.249,0,1,0,3.18-3.181h0a2.242,2.242,0,0,0-1.589-.657h0a2.244,2.244,0,0,0-1.591.659" transform="translate(-9.215 -9.267)" fill="#fefefe" fill-rule="evenodd"/>'+
+'</g>'+
+'</svg><label id="lblValor2'+i+'"></label></div></td>'+
+				'<td>	<div class="form-group row"><svg xmlns="http://www.w3.org/2000/svg" width="23.101" height="15" viewBox="0 0 23.101 15">'+
+'  <g id="embarque" opacity="0.8">'+
+'    <g id="Capa_1" data-name="Capa 1">'+
+'      <path id="Path_92" data-name="Path 92" d="M11.374,15.41a1.354,1.354,0,1,0,1.354,1.354A1.354,1.354,0,0,0,11.374,15.41Z" transform="translate(-2.038 -3.134)" fill="#00263a"/>'+
+'      <circle id="Ellipse_5" data-name="Ellipse 5" cx="1.354" cy="1.354" r="1.354" transform="translate(18.362 12.292)" fill="#00263a"/>'+
+'      <path id="Path_93" data-name="Path 93" d="M22.974,10a.207.207,0,0,1-.207-.207h0V8.484a.8.8,0,0,0-.693-.8L21.11,7.5h0a.2.2,0,0,1-.151-.112l-2.127-4.2a.95.95,0,0,0-.319-.366.847.847,0,0,0-.438-.119H14.092V.478A.478.478,0,0,0,13.614,0H4.66a.494.494,0,0,0-.486.478V10.961L0,12.825l.621,1.593,3.6-1.673H6.66a2.764,2.764,0,0,1,5.449,0h4.9a2.764,2.764,0,0,1,5.441,0h.343a.3.3,0,0,0,.311-.295h0V10ZM19.469,7.329h-5.21a.191.191,0,0,1-.191-.159V3.7a.191.191,0,0,1,.191-.183h3.075a.674.674,0,0,1,.351.1.649.649,0,0,1,.247.279l1.593,3.186A.207.207,0,0,1,19.469,7.329Z" fill="#00263a"/>'+
+'    </g>'+
+'  </g>'+
+'</svg>'+
+'</div>	<div class="form-group row"><svg xmlns="http://www.w3.org/2000/svg" width="23.153" height="14" viewBox="0 0 23.153 14">'+
+'  <g id="Group_1475" data-name="Group 1475" transform="translate(-8.4 -17.29)" opacity="0.5">'+
+'    <circle id="Ellipse_6" data-name="Ellipse 6" cx="1.411" cy="1.411" r="1.411" transform="translate(10.707 28.468)" fill="#00263a"/>'+
+'    <circle id="Ellipse_7" data-name="Ellipse 7" cx="1.411" cy="1.411" r="1.411" transform="translate(26.547 28.468)" fill="#00263a"/>'+
+'    <path id="Path_98" data-name="Path 98" d="M31.357,26.9a.22.22,0,0,1-.221-.2h0V25.327a.834.834,0,0,0-.724-.859L29.382,24.3h0a.209.209,0,0,1-.16-.123l-2.16-4.368a.913.913,0,0,0-.331-.38.845.845,0,0,0-.454-.123H22.056v-1.5a.515.515,0,0,0-.5-.515H8.9a.5.5,0,0,0-.5.5h0V28.971h.933a2.95,2.95,0,0,1,.92-1.632,2.9,2.9,0,0,1,4.761,1.632H25.087a2.883,2.883,0,0,1,5.681,0h.454a.331.331,0,0,0,.331-.331h0V26.9Zm-3.681-2.785H22.253a.2.2,0,0,1-.2-.2v-3.6a.2.2,0,0,1,.2-.2h3.215a.645.645,0,0,1,.368.11.746.746,0,0,1,.258.294l1.693,3.325a.184.184,0,0,1-.074.245h0Z" transform="translate(0 0)" fill="#00263a" fill-rule="evenodd"/>'+
+'  </g>'+
+'</svg>'+
+'</div></td>'+
+
+				'<td><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">'+
+  '<path id="Path_1664" data-name="Path 1664" d="M7.5,0A7.5,7.5,0,1,0,15,7.5,7.5,7.5,0,0,0,7.5,0Zm3.242,8.926H7.563c-.011,0-.021,0-.031,0s-.021,0-.031,0a.519.519,0,0,1-.519-.519v-5.3a.519.519,0,1,1,1.037,0V7.889h2.724a.519.519,0,0,1,0,1.037Z" fill="#00263a" opacity="0.8"/>'+
+'</svg>'+teiqueta+'<br/><div class="progress">'+
+  '<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: '+tiempo+'" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>'+
+'</div>'+
+'</td>'+
+				'<td><svg xmlns="http://www.w3.org/2000/svg" width="23.153" height="14" viewBox="0 0 23.153 14">'+
+'<g id="Group_1882" data-name="Group 1882" transform="translate(-8.4 -17.29)" opacity="0.8">'+
+'  <circle id="Ellipse_6" data-name="Ellipse 6" cx="1.411" cy="1.411" r="1.411" transform="translate(10.707 28.468)" fill="#00263a"/>'+
+'  <circle id="Ellipse_7" data-name="Ellipse 7" cx="1.411" cy="1.411" r="1.411" transform="translate(26.547 28.468)" fill="#00263a"/>'+
+'  <path id="Path_98" data-name="Path 98" d="M31.357,26.9a.22.22,0,0,1-.221-.2h0V25.327a.834.834,0,0,0-.724-.859L29.382,24.3h0a.209.209,0,0,1-.16-.123l-2.16-4.368a.913.913,0,0,0-.331-.38.845.845,0,0,0-.454-.123H22.056v-1.5a.515.515,0,0,0-.5-.515H8.9a.5.5,0,0,0-.5.5h0V28.971h.933a2.95,2.95,0,0,1,.92-1.632,2.9,2.9,0,0,1,4.761,1.632H25.087a2.883,2.883,0,0,1,5.681,0h.454a.331.331,0,0,0,.331-.331h0V26.9Zm-3.681-2.785H22.253a.2.2,0,0,1-.2-.2v-3.6a.2.2,0,0,1,.2-.2h3.215a.645.645,0,0,1,.368.11.746.746,0,0,1,.258.294l1.693,3.325a.184.184,0,0,1-.074.245h0Z" transform="translate(0 0)" fill="#00263a" fill-rule="evenodd"/>'+
+'</g>'+
+'</svg>'+" "+ data[i].linea_transporte+''+
+'</td>'+
+				'<td><svg xmlns="http://www.w3.org/2000/svg" width="13.331" height="15" viewBox="0 0 13.331 15">'+
+'  <g id="Group_1878" data-name="Group 1878" transform="translate(-24.638 -56.505)" opacity="0.8">'+
+'    <path id="Path_1665" data-name="Path 1665" d="M31.3,93.514a6.665,6.665,0,0,0-6.665,6.665H37.969A6.665,6.665,0,0,0,31.3,93.514Z" transform="translate(0 -28.674)" fill="#00263a"/>'+
+'    <circle id="Ellipse_118" data-name="Ellipse 118" cx="4.167" cy="4.167" r="4.167" transform="translate(27.136 56.505)" fill="#00263a"/>'+
+'  </g>'+
+'</svg>'+ data[i].chofer+''+
+'</td>	<td><button type="button" class="btn btn-success form-control" data-toggle="tooltip" data-placement="top" title="Buscar" id="CargarDatos_'+i+'"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">'+
+				'<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>'+
+			  '</svg></button><button type="button" id="cargarDTO_'+i+'" class="hide"></button><input type="hidden" id="sol'+i+'" value="'+data[i].Solicitud+'"/></td>'+
+				'</tr>'
+        
+		$("#tabla_resultados").append(nuevafila)
+		
+		
+		}
+		$("[id^='cargarDTO'] ").trigger( "click" );
+})
+$(document).on("click","[id^='CargarDatos_'] ",function(){
+	var id=$(this).attr("id")
+	var a ="12";
+	var valor=$(this).closest("tr").find("[id^='sol']").val();
+	$(location).attr('href',"DetalleViajeBiiS.html?Sol="+valor+"");
+
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,625 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	 <style type="text/css">
+
+	    
+
+
+	    
+	    #myProgress {
+	 color: red;
+
+
+
+	 width: 100%; 
+	height: :100%;
+	  
+
+	}
+	@media screen and (max-width: 600px) {
+	       table {
+	           width:100%;
+	       }
+	       thead {
+	           display: none;
+	       }
+	       tr:nth-of-type(2n) {
+	           background-color: inherit;
+	       }
+	       tr td:first-child {
+	           background: #f0f0f0;
+	           font-weight:bold;
+	           font-size:1.3em;
+	       }
+	       tbody td {
+	           display: block;
+	           text-align:center;
+
+	       }
+	       tbody td:before {
+	           content: attr(data-th);
+	           display: block;
+	           text-align:center;
+	       }
+
+	   
+
+
+
+	  td:nth-of-type(1):before {background:#4958A2;color:white;}
+
+	          td:nth-of-type(1):before { content: "Solicitud Factura Detalle"; }
+	                   td:nth-of-type(2):before { content: "Estatus"; }
+	          td:nth-of-type(3):before { content: "Fecha De Carga"; }
+	          td:nth-of-type(4):before { content: "Fecha de InicioRuta"; }
+	          td:nth-of-type(5):before { content: "referenciaInterna";}
+	             td:nth-of-type(6):before { content: "secondReference";}
+
+	       
+	#divTot:before {background:#4958A2;color:white;}
+
+
+
+	@media screen and (max-width: 980px) {
+
+	#tabla_resultados2:before {
+
+	  display: block;
+	       overflow-x: auto;
+	 }
+	}
+
+	}
+
+	  @media screen and (max-width: 320px) {
+	     table {
+	       display: block;
+	       overflow-x: auto;
+	     }
+	   
+	}
+	  /* The side navigation menu */
+	    .sidenav {
+	    height: 100%; /* 100% Full-height */
+	    width: 0; /* 0 width - change this with JavaScript */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Stay on top */
+	    top: 0;
+	    left: 0;
+	    background-color: #123B5E; /* Black*/
+	    overflow-x: hidden; /* Disable horizontal scroll */
+	    padding-top: 60px; /* Place content 60px from the top */
+	    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+	}
+	 
+	/* The navigation menu links */
+	.sidenav a {
+	    padding: 8px 8px 8px 32px;
+	    text-decoration: none;
+	    font-size: 25px;
+	    color:white;
+	    display: block;
+	    transition: 0.3s
+	}
+	 
+	/* When you mouse over the navigation links, change their color */
+	.sidenav a:hover, .offcanvas a:focus{
+	    color: red;
+	}
+	 
+	/* Position and style the close button (top right corner) */
+	.sidenav .closebtn {
+	    position: absolute;
+	    top: 0;
+	    right: 25px;
+	    font-size: 12px;
+	    margin-left: 50px;
+	}
+	 
+	/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+	#main {
+	    transition: margin-left .5s;
+	    padding: 20px;
+	    overflow:hidden;
+	    width:100%;
+	}
+	body {
+	  overflow-x: hidden;
+	}
+	 
+	/* Add a black background color to the top navigation */
+	.topnav {
+	    background-color: #083D75;
+	    overflow: hidden;
+	}
+	 
+	/* Style the links inside the navigation bar */
+	.topnav a {
+	    float: left;
+	    display: block;
+	    color: white;
+	    text-align: center;
+	    padding: 14px 16px;
+	    text-decoration: none;
+	    font-size: 17px;
+	    height:50px;
+	}
+	 
+	/* Change the color of links on hover */
+	.topnav a:hover {
+	    background-color:#174E7E;
+	    color: white;
+	}
+	 
+	/* Add a color to the active/current link */
+	.topnav a.active {
+	    background-color: #4CAF50;
+	    color: white;
+	}
+	 
+	/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+	@media screen and (max-height: 450px) {
+	    .sidenav {padding-top: 15px;}
+	    .sidenav a {font-size: 18px;}
+
+	}
+	 
+
+	 
+	#ico{
+	  display: none;
+	}
+	 
+	.menu{
+	  background: #000;
+	  display: none;
+	  padding: 5px;
+	  width: 320px;
+	  @include border-radius(5px);
+	 
+
+	}
+	  </style>
+	<script type="text/javascript">
+				//$( "#BTNPruebas" ).trigger( "click" );
+		 $("#BTNPruebas").click(function(event){
+		 	console.log("entrando al boton")
+		   var direcc="https://tms-core-api.cloudnetlogistik.com/api/auth";
+		var vardata='{  "mobility": 0,  "username": "Rafael",  "password": "123456"}'
+		var dt= JSON.stringify(vardata)
+		console.log(direcc)
+			console.log(vardata)
+				console.log(dt)
+				var token =""
+		$.ajax({
+			data: vardata,
+			url: direcc, //url de donde creara el destino
+			dataType: 'json', //tipo de datos retornados
+			type: 'POST',
+			 async:false,  //enviar variables como POST,
+			headers: {
+				
+				"Access-Control-Allow-Origin":"*",
+				"Content-Type": "application/json"
+
+			}
+		
+		}).done(function (data) {
+			
+			token=data.token
+			console.log(token)
+			$("#token").val(token)
+		})
+	//	$( "#BTNPruebas2" ).trigger( "click" );
+	})
+			 $("#BTNPruebas2").click(function(event){
+		var TKN=$("#token").val()
+	  var direcc="https://tms-core-api.cloudnetlogistik.com/api/solicitudes/usuarios/5f0cabff6fa7882c7addc537/misMatches?cantidad=50&saltar=0&shipperOid=5ae7024334731214082bc53a";
+		var vardata='[{"action": "Date","filterSelected": true,"filterValue": {"begin": "2021-01-01","end": "2021-01-21"},"name": "Fechas"}]'
+			$.ajax({
+			data: vardata,
+			url: direcc, //url de donde creara el destino
+			dataType: 'json', //tipo de datos retornados
+			type: 'POST',
+			 async:false,  //enviar variables como POST,
+			headers: {
+				
+				"Access-Control-Allow-Origin":"*",
+				"x-access-token":TKN,
+				"Content-Type": "application/json"
+
+			}
+		
+		}).done(function (data) {	
+			console.log("data")
+			console.log(data)
+
+	    console.log(data.solicitudes)
+	      var filas = data.solicitudes.length;
+	  var filas2 = data.solicitudes.detalleslength;
+	 
+	        for (  i = 0 ; i < filas; i++){ 
+	        var filas2 = data.solicitudes[i].detalles.length; //cuenta la cantidad de registros
+	        
+	               for (  i2 = 0 ; i2 < filas2; i2++){
+	               	var estatus =data.solicitudes[i].detalles[i2].estatus
+	               	 var td=""
+	               	if (estatus=="Entregado"){
+	               		 td='<td class="tdcabeza" style="background-color:#BEECA8;" >' +data.solicitudes[i].detalles[i2].estatus+ '</td>'}
+	               		 	if (estatus=="No Entregado"){ td='<td class="tdcabeza"  style="background-color:#ECADA8;">' +data.solicitudes[i].detalles[i2].estatus+ '</td>'}
+	               	
+	              
+	               console.log(data.solicitudes[i].detalles[i2].destino.nombre)
+	                   var nuevafila= '<tr id="tr___'+ i +'" ><td id="valorconsulta'+i+'">' + data[i].id+'</td><td class="tdcabeza" >' + data.solicitudes[i].detalles[i2].destino.nombre + '</td>'+td+'<td class="tdcabeza" >' +     data.solicitudes[i].fechaCarga + '</td><td class="tdcabeza" >' +     data.solicitudes[i].fechaInicioRuta + '</td><td class="tdcabeza" >' +     data.solicitudes[i].referenciaInterna + '</td><td class="tdcabeza" >' +     data.solicitudes[i].secondReference + '</td><td class="hide">'+  data.solicitudes[i].id+'</td><td class=""><button  class=" btn btn-primary"ID="btn_evicencia'+i2+
+					   '">Evidencia</button></td><td><input type="button" class="hide" value="cargar" id="cargarDatos_'+i+'"/></td><td><input type="hidden" id="incluirDatos_'+i+'"/></td><td id="origen_'+i+'"></td><td id="trasporte'+i+'"></td><td id="chofer'+i+'"></td></tr>'
+	        
+	          $("#tabla_resultados").append(nuevafila)
+	               	     
+	                }
+	      }
+	      })
+			 })
+	</script>
+			</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+	<div class="panel panel-default">
+		<div class="panel panel-heading">	
+			<div class="form-group row">
+				<img src="biistamex.jpg" alt="" style="width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;" height="10" class="img-responsive">
+			</div>
+		</div>
+		<div class="panel panel-body">	
+<div class="container">
+<div class="row">
+	<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+	<h3>Estatus</h3>
+	<select name="Solicitudes" id="Solicitudes" class="form-control">
+
+	  </select>
+	</div>
+	<input
+       type="button"
+       value=""  id="BTNPruebas"  name="dklaqdsa" class="hide">
+	   <input id="BTNPruebas2" name="dkla" class="hide">
+	   <input type="button" id="dra" name="dra" class="">
+	   <input type="button" id="BTNControl" name="BTNControl" class="">
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+	<h3>buscar</h3>
+	<input type="text" placeholder="Ingurese numero de solicitud" class="form-control-sm form-control" id="search" style="border-radius:0px;width:280px;" name="dklaas" >
+</div>
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+
+
+</div>
+</div>
+<div class="row">
+
+	
+	
+
+
+ 
+    <div id="mostrarResultado">
+<table id="tabla_resultados"  class="table table-striped table-responsive-md btn-table table-hover">
+          <thead role="rowgroup" style="background-color:#4958A2;color:white; ">
+            <tr role="row"  style="background-color:#4958A2;color:white; ">
+         
+            
+            
+            </tr>
+          </thead>
+          <tbody role="rowgroup"  id="rolerole">
+            <tr>
+       
+           </tr>
+          </tbody>
+        </table>
+<input type="text"  class="hide"name="token" id="token">
+<script type="text/javascript">
+  
+  $("#BTNControl").click(function(event){  $("[id^='btncargaapi'] ").trigger( "click" );})
+
+
+$("#BTNPruebas").click(function(event){
+	var TKN=$("#token").val()
+
+console.log("entrando al boton")
+var direcc="https://tms-core-api.cloudnetlogistik.com/api/auth";
+var vardata='{  "mobility": 0,  "username": "Rafael",  "password": "123456"}'
+var dt= JSON.stringify(vardata)
+console.log(direcc)
+console.log(vardata)
+console.log(dt)
+var token =""
+$.ajax({
+data:vardata,
+url: direcc, //url de donde creara el destino
+dataType: 'json', //tipo de datos retornados
+type: 'POST',
+async:false,  //enviar variables como POST,
+headers: {
+
+"Access-Control-Allow-Origin":"*",
+"Content-Type": "application/json"
+
+}
+
+}).done(function (data) {
+
+token=data.token
+console.log(token)
+$("#token").val(token)
+})
+//$( "#BTNPruebas2" ).trigger( "click" );
+})
+$("#Solicitudes").change(function(){
+	$("#rolerole").empty();
+     var control =$(this).val()
+	 
+	var TKN=$("#token").val()
+			var url= "https://tms-core-api.cloudnetlogistik.com/api/solicitudes?estatus="+control+""
+	$.ajax({
+
+url: url, //url de donde creara el destino
+dataType: 'json', //tipo de datos retornados
+type: 'GET',
+async:false,  //enviar variables como POST,
+headers: {
+
+"Access-Control-Allow-Origin":"*",
+"x-access-token":TKN,
+"Content-Type": "application/json"
+
+}
+
+}).done(function (data) {
+	$("#Solicitudes1").val(data.length)
+	var filas = data.length;
+	console.log(data)
+ console.log(filas)
+        for (  i = 0 ; i < filas; i++){console.log( data[i].id) 
+			var nuevafila= '<tr id="tr___'+ i +'" ><td  id="Fecha'+i+''+data[i].fecha+'"><td  id="valorconsulta'+i+'">' + data[i].id+'<input type="hidden" id="valConsul'+i+'" value="'+ data[i].id+'"><input type="hidden" id="valF'+i+'" value="'+ data[i].fecha+'"><input type="hidden" id="valref'+i+'" value="'+ data[i].secondReference+'"><input type="hidden" id="segref'+i+'" value="'+ data[i].referenciaInterna+'"> <input type="hidden" id="origen_'+i+'" value=""><input type="hidden" id="Destino_'+i+'" value=""><input type="hidden" id="Fecha_'+i+'" value=""><input type="hidden" id="Trasnport_'+i+'" value=""><input type="hidden" id="Chofer_'+i+'" value=""><input type="button" id="btncargaapi'+i+'"><input type="button" class="" value="cargar" id="cargarDatos_'+i+'"/></td><td id="origen_'+i+'"></td><td id="trasporte'+i+'"></td><td id="chofer'+i+'"></td></tr>'
+        
+		$("#tabla_resultados").append(nuevafila)
+		
+		
+		}
+	});
+   //////////////
+   $("[id^='cargarDatos'] ").trigger( "click" );
+	});
+$("#BTNPruebas2").click(function(event){
+
+	var TKN=$("#token").val()
+
+var url= "https://tms-core-api.cloudnetlogistik.com/api/solicitudes?estatus=Arribado"
+	$.ajax({
+
+url: url, //url de donde creara el destino
+dataType: 'json', //tipo de datos retornados
+type: 'GET',
+async:false,  //enviar variables como POST,
+headers: {
+
+"Access-Control-Allow-Origin":"*",
+"x-access-token":TKN,
+"Content-Type": "application/json"
+
+}
+
+}).done(function (data) {
+	$("#Solicitudes1").val(data.length)
+	console.log(data.length)
+	var option='<option value="Arribado">Arribado '+data.length+'</option>'
+	$("#Solicitudes").append(option)
+	
+});
+
+
+///////////
+var url= "https://tms-core-api.cloudnetlogistik.com/api/solicitudes?estatus=En Transito"
+	$.ajax({
+
+url: url, //url de donde creara el destino
+dataType: 'json', //tipo de datos retornados
+type: 'GET',
+async:false,  //enviar variables como POST,
+headers: {
+
+"Access-Control-Allow-Origin":"*",
+"x-access-token":TKN,
+"Content-Type": "application/json"
+
+}
+
+}).done(function (data) {
+	$("#Solicitudes1").val(data.length)
+	console.log(data.length)
+	var option='<option value="En Transito">En Transito '+data.length+'</option>'
+	$("#Solicitudes").append(option)
+	
+});
+///////////
+var url= "https://tms-core-api.cloudnetlogistik.com/api/solicitudes?estatus=Entregada"
+	$.ajax({
+
+url: url, //url de donde creara el destino
+dataType: 'json', //tipo de datos retornados
+type: 'GET',
+async:false,  //enviar variables como POST,
+headers: {
+
+"Access-Control-Allow-Origin":"*",
+"x-access-token":TKN,
+"Content-Type": "application/json"
+
+}
+
+}).done(function (data) {
+	$("#Solicitudes1").val(data.length)
+	console.log(data.length)
+	var option='<option value="Entregada">Entregada'+data.length+'</option>'
+	$("#Solicitudes").append(option)
+	
+});
+///////////
+	
+});
+
+
+
+$("#search").keyup(function(){
+
+_this = this;
+
+
+
+
+	$.each($("#tabla_resultados tbody tr"), function() {
+
+	if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+
+	$(this).hide();
+
+	else
+
+	$(this).show();
+
+	});
+
+});
+$(document).on("click","[id^='cargarDatos'] ",function(){
+	var id=$(this).attr("id")
+	console.log(id)
+	var res = id.split("_");
+	var valor_fila=res[1];
+	console.log(valor_fila)
+	var valor=$(this).closest("tr").find("[id^='valConsul']").val();
+	var TKN=$("#token").val()
+	var datos="";
+	var url= "https://tms-core-api.cloudnetlogistik.com/api/solicitudes/"+valor+"/dashboard?emb=5ae7024334731214082bc53a&action=historico&userOid=5ef4ee27e02f271644506b57"
+	console.log(url)
+	$.ajax({
+
+url: url, //url de donde creara el destino
+dataType: 'json', //tipo de datos retornados
+type: 'GET',
+async:false,  //enviar variables como POST,
+headers: {
+
+"Access-Control-Allow-Origin":"*",
+"x-access-token":TKN,
+"Content-Type": "application/json"
+
+}
+
+}).done(function (data) {
+	console.log(data)
+var filas=data.detalles.length;
+console.log(filas)
+
+for (  i = 0 ; i < filas; i++){
+	
+	console.log( data.detalles[i].origen)
+	var origen=data.detalles[i].origen.direccion;
+	var estadoorigen=data.detalles[i].origen.estado;
+	var destino=data.detalles[i].destino.direccion;
+	var estadoDestino=data.detalles[i].destino.estado;
+var OrigenDat='<h5>*Origen: </h5>'
+var DestinoDat='<h5>*Destino: </h5>'
+var letra =OrigenDat+" "+origen+" "+estadoorigen+" "+DestinoDat+" "+destino+" "+estadoDestino
+var evidencias =data.detalles[i].evidencias.firma.timestamp
+var evidenciai='<br/>'+i+".-: "+evidencias
+console.log("evidencias"+" " + evidencias)
+var Nombre=data.detalles[i].destino.nombre;
+$("#origen_"+valor_fila+"").val(origen)
+$("#Destino_"+valor_fila+"").val(destino)
+$("#Fecha_"+valor_fila+"").val(evidencias)
+
+
+
+
+
+
+console.log("origen "+origen)
+
+datos=data
+}
+var chofer=data.embarque.chofer.nombre;
+var lineaTransporte=data.embarque.lineaTransporte.nombre;
+
+	console.log("chofer "+ chofer)
+	console.log("lineaTransporte "+ lineaTransporte)
+
+	$("#chofer"+valor_fila+"").val(chofer)
+	$("#Trasnport_"+valor_fila+"").val(lineaTransporte)
+	
+});
+
+
+
+	console.log("hola mundo")
+})
+$( "#BTNPruebas" ).trigger( "click" );
+    
+$( "#BTNPruebas2" ).trigger( "click" );
+$("[id^='cargarDatos'] ").trigger( "click" );
+$(document).on("click","[id^='btncargaapi'] ",function(){
+     
+
+	var newurl="http://localhost:53886/api/InsertBiis/SelectDataBiis"
+
+	var Fecha=$(this).closest("tr").find("[id^='valF']").val();
+	console.log(Fecha)
+	var valor=$(this).closest("tr").find("[id^='valConsul']").val();
+	var valref=$(this).closest("tr").find("[id^='valref']").val();
+	var segref=$(this).closest("tr").find("[id^='segref']").val();
+	var origen=$(this).closest("tr").find("[id^='origen_']").val();
+	var trasporte=$(this).closest("tr").find("[id^='Trasnport_']").val();
+	var chofer=$(this).closest("tr").find("[id^='chofer']").val();
+	var Destino_=$(this).closest("tr").find("[id^='Destino_']").val();
+	
+if (origen =="" || origen==" "|| origen==null ){origen="sn"}
+	data='{  "Solicitud": "'+valor+'",  "Referencia1": "'+valref+'",  "Referencia2": "'+segref+'",  "Origen": "'+origen+'",  "Destino": "'+Destino_+'",  "fecha_inicio": "'+Fecha+'",  "fecha_act": "'+Fecha+'",  "linea_transporte": "'+trasporte+'",  "chofer": "'+chofer+'"}'
+console.log(newurl)
+
+console.log(data)
+$.ajax({
+data: data,
+url: newurl, //url de donde creara el destino
+dataType: 'json', //tipo de datos retornados
+type: 'POST',
+ async:true,  //enviar variables como POST,
+headers: {
+    
+    "Access-Control-Allow-Origin":"*",
+    "Content-Type": "application/json"
+
+}
+
+}).done(function (data) {	console.log(data+" ")})
+
+
+});
+$("#dra").click(function(event){$("[id^='btncargaapi'] ").trigger( "click" );})
+
+</script>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+</body>
+</html>
